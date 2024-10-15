@@ -4,7 +4,8 @@
   "description": "",
   "main": "calculator.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "browserify main.js -o bundle.js"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
