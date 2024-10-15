@@ -18,4 +18,18 @@ describe("String Calculator", function () {
     test('adds "" to equal 0', () => {
         expect(calculator.add("")).toBe(0)
     });
+
+    test("should allow \\n in between the input number string", function() {
+        expect(calculator.add("1\n2,3")).toBe(6)
+    })
+    
+    test("should not allow a single negative number and show it in the error message", function() {
+        expect(() => calculator.add("-1,2,3")).toThrow('negative numbers not allowed: -1')
+    })
+
+    test("should not allow multiple negative numbers and show all of them in the error message", function() {
+        expect(() => calculator.add("-1,2,-3")).toThrow('negative numbers not allowed: -1, -3')
+    })
+
+
 })
