@@ -22,13 +22,21 @@ describe("String Calculator", function () {
     test("should allow \\n in between the input number string", function() {
         expect(calculator.add("1\n2,3")).toBe(6)
     })
-    
+
     test("should not allow a single negative number and show it in the error message", function() {
         expect(() => calculator.add("-1,2,3")).toThrow('negative numbers not allowed: -1')
     })
 
     test("should not allow multiple negative numbers and show all of them in the error message", function() {
         expect(() => calculator.add("-1,2,-3")).toThrow('negative numbers not allowed: -1, -3')
+    })
+
+    test("should allow custom delimiter and return the sum", function() {
+        expect(calculator.add("//;\n1;2")).toBe(3)
+    })
+
+    test("should handle custom delimiter with multiple characters", function() {
+        expect(calculator.add("//[***]\n1***2***3")).toBe(6)
     })
 
 
