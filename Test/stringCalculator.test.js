@@ -1,13 +1,21 @@
-// const { add } = require('./stringCalculator');
+const StringCalculator = require('../stringCalculator');
 
-test('adds "1,2" to equal 3', () => {
-  expect(add("1,2")).toBe(3)
-});
+describe("String Calculator", function () {
+    let calculator
 
-test('adds "1" to equal 1', () => {
-  expect(add("1")).toBe(1)
-});
+    beforeEach(function () {
+        calculator = new StringCalculator()
+    })
 
-test('adds "" to equal 0', () => {
-  expect(add("")).toBe(0)
-});
+    test('adds "1,2" to equal 3', () => {
+        expect(calculator.add("1,2")).toBe(3)
+    });
+
+    test('adds "1" to equal 1', () => {
+        expect(calculator.add("1")).toBe(1)
+    });
+
+    test('adds "" to equal 0', () => {
+        expect(calculator.add("")).toBe(0)
+    });
+})
